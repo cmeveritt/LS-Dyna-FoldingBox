@@ -54,3 +54,33 @@ $#
 LSHELL1
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
         11         1         1         0         0         0         0 
+*PART
+$#
+LSHELL1
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+        12         1         1         0         0         0         0 
+*PART
+$#
+LSHELL1
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+        13         1         1         0         0         0         0 
+*PART
+$#
+LSHELL1
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+        14         1         1         0         0         0         0 
+*PART
+$#
+LSHELL1
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+        15         1         1         0         0         0         0 
+*PART
+$#
+LSHELL1
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+        16         1         1         0         0         0         0 
+*PART
+$#
+LSHELL1
+$#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
+        17         1         1         0         0         0         0 

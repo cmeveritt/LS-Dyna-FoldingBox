@@ -38,6 +38,6 @@ $# offset1   offset2       mrb     node1     node2
 $#      id                                                               heading 
         4 folding front plate 
 $#    nsid       dof       vad      lcid        sf       vid     death     birth 
-        11        10         2         1       1.0         01.00000E28         1 
+        11        10         2         2       1.0         01.00000E28         1 
 $# offset1   offset2       mrb     node1     node2     
         22        21         0         0         0 
