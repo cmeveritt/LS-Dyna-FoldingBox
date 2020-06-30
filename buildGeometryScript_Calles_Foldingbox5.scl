@@ -8,14 +8,15 @@
 define:
 Float MyExpressFunc(Float tt)
 {
-   Float panel_w, panel_h, crease_w;
+   Float panel_w, panel_h, crease_w, glue_w;
    Float x1,x2,y1,y2;
-   Int i;
+   Int i, Edge1, Edge2, Edge3;
     char p[256];
 
     panel_w=20;
     panel_h=80;
     crease_w=2;
+    glue_w= panel_w/3;
 
  ExecuteCommand("cemptymodel");
 
@@ -24,27 +25,27 @@ Float MyExpressFunc(Float tt)
      /* plane 0 0 0 1.0 0 5.0 0.0 */
      /* The first two is probably for global coordinate system and the xy plane */
 
+    /* Generate left side  */
      x1 = -panel_w - crease_w;
      x2 = x1 + panel_w;
      sprintf(p, "%f ", x1);
      ExecuteCommand(p); 
-     /* Generate left side  */
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1,x2, 0.0, panel_h );
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1,x2, 0.0, panel_h );
      ExecuteCommand(p); 
 
-     /*left crease */
+    /*left crease */
      x1 = x2;
      x2 = x1 + crease_w;
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
      ExecuteCommand(p); 
 
-     /* Generate central/back side  */
+    /* Generate central/back side  */
      x1 = x2;
      x2 = x1 + panel_w;
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
      ExecuteCommand(p);
 
-     /* Generate falps  */
+    /* Generate falps  */
      y1 = -panel_w - crease_w;
      y2 = y1 + panel_w;
      sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1 , y2 );
@@ -65,35 +66,140 @@ Float MyExpressFunc(Float tt)
      sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1 , y2 );
      ExecuteCommand(p);
     
-     /*Right back  crease */
+    /*Right back  crease */
      x1 = x2;
      x2 = x1 + crease_w;
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
      ExecuteCommand(p); 
 
-     /* Generate right side  */
+    /* Generate right side  */
      x1 = x2;
      x2 = x1 + panel_w;
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
      ExecuteCommand(p); 
 
-     /*right front crease */
+    /*right front crease */
      x1 = x2;
      x2 = x1 + crease_w;
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
      ExecuteCommand(p); 
     
-     /* Generate front side  */
+    /* Generate front side  */
      x1 = x2;
      x2 = x1 + panel_w;
-	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
-     
+	   sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
      ExecuteCommand(p);
+
+    /* Generate left part for glue */
+     /*generate needed crease */
+       x1 = -panel_w -crease_w;
+       x2 = x1 - crease_w;
+	     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+       ExecuteCommand(p); 
+     /* Generate the falp */
+     /*Generate the lines */
+       x1 = x2;
+       x2 = x1 -glue_w ;
+       y1 = 0;
+       y2 = glue_w;     /* 45 deg angle */
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+       x1 = x2;
+       x2 = x2;
+       y1 = y2;
+       y2 = panel_h -glue_w;
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+       x1 = x2;
+       x2 = x1 +glue_w;
+       y1 = y2;
+       y2 = y1+glue_w;
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+      /*Form it into a surface */
+       Edge1 = SCLGetDataCenterInt("largest_edge_id");
+       Edge2 = Edge1 -1;
+       Edge3 = Edge2 -1;
+       sprintf(p,"nsurf 0 0 0 0 %de %d %d", Edge3, Edge2, Edge1);
+       ExecuteCommand(p);
+
+    /* Generate bottom part for glue */
+     /*generate needed crease */
+       x1 = 0;
+       x2 = panel_w;
+       y1 = - crease_w -panel_w;
+       y2 = y1 - crease_w;
+	     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1, y2 );
+       ExecuteCommand(p); 
+     /* Generate the falp */
+     /*Generate the lines */
+       x1 = 0;
+       x2 = glue_w;
+       y1 = y2;
+       y2 = y1 - glue_w;     /* 45 deg angle */
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+       x1 = x2;
+       x2 = panel_w-glue_w;
+       y1 = y2;
+       y2 = y1;
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+       x1 = x2;
+       x2 = x1 +glue_w;
+       y1 = y2;
+       y2 = y1+glue_w;
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+      /*Form it into a surface */
+       Edge1 = SCLGetDataCenterInt("largest_edge_id");
+       Edge2 = Edge1 -1;
+       Edge3 = Edge2 -1;
+       sprintf(p,"nsurf 0 0 0 0 %de %d %d", Edge3, Edge2, Edge1);
+       ExecuteCommand(p);
+
+     /* Generate top part for glue */
+     /*generate needed crease */
+       x1 = 0;
+       x2 = panel_w;
+       y1 = panel_h+crease_w+panel_w;
+       y2 = y1 + crease_w;
+	     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1, y2 );
+       ExecuteCommand(p); 
+     /* Generate the falp */
+     /*Generate the lines */
+       x1 = 0;
+       x2 = glue_w;
+       y1 = y2;
+       y2 = y1 + glue_w;     /* 45 deg angle */
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+       x1 = x2;
+       x2 = panel_w-glue_w;
+       y1 = y2;
+       y2 = y1;
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+       x1 = x2;
+       x2 = x1 + glue_w;
+       y1 = y2;
+       y2 = y1 - glue_w;
+       sprintf(p, "line param  %f %f 0.0 %f %f 0", x1,y1,x2,y2);
+       ExecuteCommand(p);
+      /*Form it into a surface */
+       Edge1 = SCLGetDataCenterInt("largest_edge_id");
+       Edge2 = Edge1 -1;
+       Edge3 = Edge2 -1;
+       sprintf(p,"nsurf 0 0 0 0 %de %d %d", Edge3, Edge2, Edge1);
+       ExecuteCommand(p);
+
+       
+
 
 /* Generate Mesh */
 ExecuteCommand("genselect target occobject");
 
-for (i = 1; i < 12; i=i+1){
+for (i = 1; i < 18; i=i+1){
     ExecuteCommand("occfilter clear");
     sprintf(p,"genselect occobject add occobject  %df", i);
 ExecuteCommand(p);
@@ -102,7 +208,7 @@ ExecuteCommand("occmesh accept 1 0.0001 0 1");
   }
 
 /* Create node sets */
-for (i = 1; i < 12; i=i+1){
+for (i = 1; i < 18; i=i+1){
 ExecuteCommand("setnode");
 ExecuteCommand("genselect target node");
 ExecuteCommand("genselect clear");
