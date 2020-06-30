@@ -1,0 +1,125 @@
+/* This function generates the geometry of a Box  */
+/* This piece of shit code was written by Carl - Magnus Everitt in 2020 */
+/* For bugs, contact carl-magnus.everitt@ri.se */
+/* Code is not optimised for speed, memory or operation */
+/* Need to go through all data type definitions too! */
+/* Change the way perturbation nodes are selecetd on the wider panels if using the manufacturer's joint */
+
+define:
+Float MyExpressFunc(Float tt)
+{
+   Float panel_w, panel_h, crease_w;
+   Float x1,x2,y1,y2;
+   Int i;
+    char p[256];
+
+    panel_w=20;
+    panel_h=80;
+    crease_w=2;
+
+ ExecuteCommand("cemptymodel");
+
+/* generate planes */   
+     /* Structure of command generating planes */
+     /* plane 0 0 0 1.0 0 5.0 0.0 */
+     /* The first two is probably for global coordinate system and the xy plane */
+
+     x1 = -panel_w - crease_w;
+     x2 = x1 + panel_w;
+     sprintf(p, "%f ", x1);
+     ExecuteCommand(p); 
+     /* Generate left side  */
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1,x2, 0.0, panel_h );
+     ExecuteCommand(p); 
+
+     /*left crease */
+     x1 = x2;
+     x2 = x1 + crease_w;
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+     ExecuteCommand(p); 
+
+     /* Generate central/back side  */
+     x1 = x2;
+     x2 = x1 + panel_w;
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+     ExecuteCommand(p);
+
+     /* Generate falps  */
+     y1 = -panel_w - crease_w;
+     y2 = y1 + panel_w;
+     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1 , y2 );
+     ExecuteCommand(p);
+
+     y1 = y2;
+     y2 = 0.0;
+     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1 , y2 );
+     ExecuteCommand(p);
+
+     y1 = panel_h;
+     y2 = panel_h+crease_w;
+     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1 , y2 );
+     ExecuteCommand(p);
+
+     y1 = y2;
+     y2 = y1 + panel_w;
+     sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, y1 , y2 );
+     ExecuteCommand(p);
+    
+     /*Right back  crease */
+     x1 = x2;
+     x2 = x1 + crease_w;
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+     ExecuteCommand(p); 
+
+     /* Generate right side  */
+     x1 = x2;
+     x2 = x1 + panel_w;
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+     ExecuteCommand(p); 
+
+     /*right front crease */
+     x1 = x2;
+     x2 = x1 + crease_w;
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+     ExecuteCommand(p); 
+    
+     /* Generate front side  */
+     x1 = x2;
+     x2 = x1 + panel_w;
+	 sprintf(p, "plane 0 0 %f %f %f %f 0.0", x1, x2, 0.0, panel_h );
+     
+     ExecuteCommand(p);
+
+/* Generate Mesh */
+ExecuteCommand("genselect target occobject");
+
+for (i = 1; i < 12; i=i+1){
+    ExecuteCommand("occfilter clear");
+    sprintf(p,"genselect occobject add occobject  %df", i);
+ExecuteCommand(p);
+ExecuteCommand("occmesh mesh 0, 1 0 1 2 0 0");
+ExecuteCommand("occmesh accept 1 0.0001 0 1");
+  }
+
+/* Create node sets */
+for (i = 1; i < 12; i=i+1){
+ExecuteCommand("setnode");
+ExecuteCommand("genselect target node");
+ExecuteCommand("genselect clear");
+sprintf(p,"genselect node add part %d/0 ", i);
+ExecuteCommand(p);
+sprintf(p,"setnode createset %d 1 0 0 0 0 ", i);
+ExecuteCommand(p);
+ExecuteCommand("genselect clear  ");
+}
+
+
+
+
+    
+	}
+
+
+
+}
+MyExpressFunc(1.0);
