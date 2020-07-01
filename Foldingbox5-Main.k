@@ -40,9 +40,9 @@ $ Input the geometry file
 $=======================================================================================
 *INCLUDE
 $#                                                                      filename
-Foldingbox5-Geom.K
+Foldingbox5-No_Parts_Geom.K
 $#                                                                      filename
-Foldingbox5-Ad_Geom.K
+Foldingbox5-New_Parts_Geom.K
 $#                                                                      filename
 Boundary_v5.K
 *END

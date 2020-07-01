@@ -5,7 +5,7 @@ REM Initial ideas from https://stackoverflow.com/questions/23574631/edit-text-fi
     setlocal enableextensions disabledelayedexpansion
 
     set "Original_filename=.\Foldingbox5-Geom.K"
-    set "Adjusted_filename=.\Foldingbox5-Ad_Geom.K"
+    set "Adjusted_filename=.\Foldingbox5-New_Parts_Geom.K"
     set "New_line=*PART"
     set "New_line2=$#"
     set "New_line3=LSHELL1"
@@ -37,6 +37,10 @@ REM Initial ideas from https://stackoverflow.com/questions/23574631/edit-text-fi
 
     endlocal
     type "%Original_filename%"
+
+    echo Now removing old part defenietions. Please wait a few minutes. 
+    REM Remove the old Part defenietions. This thakes 2-3minutes
+    call Part_ID_remover.bat
 
     endlocal
     pause

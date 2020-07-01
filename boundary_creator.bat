@@ -30,10 +30,12 @@ echo          %crease_2%        -%crease_2%         0         0         0 >> %fi
 
 
 REM First folding right sides 
+set x1= 9
+set x2= 11
 setlocal ENABLEDELAYEDEXPANSION
 set /a offset =%panel_w%+%crease_2%
 echo The foling offset is %offset% 
-for /l %%x in (9, 1, 11) do (
+for /l %%x in (%x1%, 1, %x2%) do (
 echo $#      id                                                               heading >> %file%
 echo          !counter! Initial folding setp of right side >> %file%
 set /a counter= !counter! + 1
@@ -50,6 +52,9 @@ echo          %crease_2%        %offset%         0         0         0 >> %file%
 )
 endlocal
 
+REM Since counter only updated localy inside the for loop
+set /a counter= %counter% + (%x2% - %x1% +1)
+
 REM Folding top side
 echo $#      id                                                               heading >> %file%
 echo         %counter% folding top plate >> %file%
@@ -65,7 +70,7 @@ echo $#      id                                                               he
 echo         %counter% folding bottom plate >> %file%
 set /a counter= %counter% + 1
 echo $#    nsid       dof       vad      lcid        sf       vid     death     birth >> %file%
-echo          7         9         2         1       1.0         01.00000E28       0.0 >> %file%
+echo          7         9         2         1      -1.0         01.00000E28       0.0 >> %file%
 echo $# offset1   offset2       mrb     node1     node2     >> %file%
 echo         -%crease_2%         %crease_2%         0         0         0 >> %file%
 
@@ -78,7 +83,42 @@ echo         11        10         2         2       1.0         01.00000E28     
 echo $# offset1   offset2       mrb     node1     node2     >> %file%
 set /a offset1 =%panel_w%+ %crease_w%
 set /a offset2 = %panel_w%+%crease_2%
-echo %offset1% %offset2%
 echo         %offset1%        %offset2%         0         0         0 >> %file%
+
+REM Folding glue flaps
+REM Folding left flap
+echo $#      id                                                               heading >> %file%
+echo         %counter% folding left flap >> %file%
+set /a counter= %counter% + 1
+echo $#    nsid       dof       vad      lcid        sf       vid     death     birth >> %file%
+echo         12        10         2         2       1.0         01.00000E28         1 >> %file%
+echo $# offset1   offset2       mrb     node1     node2     >> %file%
+set /a offset1 =%panel_w%+ %crease_w%
+set /a offset2 = -%crease_2%
+echo         %offset1%        %offset2%         0         0         0 >> %file%
+
+REM folding bottom  flap
+echo $#      id                                                               heading >> %file%
+echo         %counter% folding bottom  flap >> %file%
+set /a counter= %counter% + 1
+echo $#    nsid       dof       vad      lcid        sf       vid     death     birth >> %file%
+echo         13         9         2         2      -1.0         01.00000E28         1 >> %file%
+echo $# offset1   offset2       mrb     node1     node2     >> %file%
+set /a offset1 =-%crease_2%
+set /a offset2 = %panel_w% + %crease_2%
+echo         %offset1%        %offset2%         0         0         0 >> %file%
+
+REM folding top  flap
+echo $#      id                                                               heading >> %file%
+echo         %counter% folding top  flap >> %file%
+set /a counter= %counter% + 1
+echo $#    nsid       dof       vad      lcid        sf       vid     death     birth >> %file%
+echo         14         9         2         2       1.0         01.00000E28         1 >> %file%
+echo $# offset1   offset2       mrb     node1     node2     >> %file%
+set /a offset1 = %panel_h% + %crease_2%
+set /a offset2 = %panel_w% + %crease_2%
+echo         %offset1%        %offset2%         0         0         0 >> %file%
+
+
 
 pause
