@@ -1,86 +1,89 @@
-$#
+$# LS-DYNA Keyword file created by LS-PrePost(R) V4.7.1 - 23Nov2019
+$# Created on Jul-02-2020 (12:59:23)
+*KEYWORD  
 *PART
-$#
-LSHELL1
+$#                                                                         title
+left side
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         1         1         1         0         0         0 
+         1         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+left crease
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         2         1         1         0         0         0 
+         2         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+back side
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         3         1         1         0         0         0 
+         3         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+bottom
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         4         1         1         0         0         0 
+         4         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+bottom crease
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         5         1         1         0         0         0 
+         5         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+top crease
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         6         1         1         0         0         0 
+         6         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+top
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         7         1         1         0         0         0 
+         7         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+right back crease
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         8         1         1         0         0         0 
+         8         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+right side
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-         9         1         1         0         0         0 
+         9         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+right front crease
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        10         1         1         0         0         0         0 
+        10         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+front side
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        11         1         1         0         0         0         0 
+        11         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+Unnamed Part
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        12         1         1         0         0         0         0 
+        12         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+Unnamed Part
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        13         1         1         0         0         0         0 
+        13         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+Unnamed Part
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        14         1         1         0         0         0         0 
+        14         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+Unnamed Part
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        15         1         1         0         0         0         0 
+        15         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+Unnamed Part
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        16         1         1         0         0         0         0 
+        16         1         1         0         0         0         0         0
 *PART
-$#
-LSHELL1
+$#                                                                         title
+Unnamed Part
 $#     pid     secid       mid     eosid      hgid      grav    adpopt      tmid
-        17         1         1         0         0         0         0 
+        17         1         1         0         0         0         0         0
+*END
