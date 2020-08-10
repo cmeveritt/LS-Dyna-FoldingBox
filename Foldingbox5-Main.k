@@ -56,11 +56,9 @@ $ Input the geometry file
 $=======================================================================================
 *INCLUDE
 $#                                                                      filename
-C:\Users\carlmagnusev\Documents\GitHub\LS-Dyna-FoldingBox\Foldingbox5-No_Parts +
-_Geom.K
+Foldingbox5-No_Parts_Geom.K
 $#                                                                      filename
-C:\Users\carlmagnusev\Documents\GitHub\LS-Dyna-FoldingBox\Foldingbox5-New_Part +
-s_Geom.K
+Foldingbox5-New_Parts_Geom.K
 $#                                                                      filename
-C:\Users\carlmagnusev\Documents\GitHub\LS-Dyna-FoldingBox\Boundary_v5.K
+Boundary_v5.K
 *END

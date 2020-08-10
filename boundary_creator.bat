@@ -60,19 +60,19 @@ echo $#      id                                                               he
 echo         %counter% folding top plate >> %file%
 set /a counter= %counter% + 1
 echo $#    nsid       dof       vad      lcid        sf       vid     death     birth >> %file%
-echo          4         9         2         1       1.0         01.00000E28       0.0 >> %file%
+echo          4         9         2         1      -1.0         01.00000E28       0.0 >> %file%
 echo $# offset1   offset2       mrb     node1     node2     >> %file%
-set /a offset= %panel_h%+%crease_2% 
-echo         %offset%         %crease_2%         0         0         0 >> %file%
+echo          -%crease_2%         %crease_2%         0         0         0 >> %file%
 
 REM Folding bottom side
 echo $#      id                                                               heading >> %file%
 echo         %counter% folding bottom plate >> %file%
 set /a counter= %counter% + 1
 echo $#    nsid       dof       vad      lcid        sf       vid     death     birth >> %file%
-echo          7         9         2         1      -1.0         01.00000E28       0.0 >> %file%
+echo          7         9         2         1       1.0         01.00000E28       0.0 >> %file%
 echo $# offset1   offset2       mrb     node1     node2     >> %file%
-echo         -%crease_2%         %crease_2%         0         0         0 >> %file%
+set /a offset= %panel_h%+%crease_2%
+echo        %offset%         %crease_2%         0         0         0 >> %file%
 
 REM Folding front side
 echo $#      id                                                               heading >> %file%
