@@ -220,7 +220,17 @@ ExecuteCommand("genselect clear  ");
 }
 
 
+/*============================*/
+/* Merge duplicated nodes*/
+/*===========================*/
 
+ExecuteCommand("dupnode open 1");
+ExecuteCommand("genselect whole");
+ExecuteCommand("dupnode showdup 0.014133");
+ExecuteCommand("dupnode merge 0.014133");
+ExecuteCommand("genselect clear");
+ExecuteCommand("dupnode accept");
+ExecuteCommand("Build Rendering data");
 
     
 	}
