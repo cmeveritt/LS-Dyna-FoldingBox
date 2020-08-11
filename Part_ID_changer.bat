@@ -1,6 +1,7 @@
 @echo off
-REM This code ads extra linbes for definin *Part, to include secid and mid
+REM This code adds extra lines for defining *Part, to include secid and mid
 REM Since extra lines are added, LS-PrePost will present a warning meassage that these parts are defined twice
+REM If not the part ID remover is runned which is called by this batch file. 
 REM Initial ideas from https://stackoverflow.com/questions/23574631/edit-text-file-using-batch-file
     setlocal enableextensions disabledelayedexpansion
 
