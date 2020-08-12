@@ -1,6 +1,6 @@
 $# LS-DYNA Keyword file created by LS-PrePost(R) V4.7.1 - 23Nov2019
-$# Created on Aug-10-2020 (14:28:23)
-*KEYWORD   
+$# Created on Aug-12-2020 (13:47:48)
+*KEYWORD
 *ELEMENT_SHELL
 $#   eid     pid      n1      n2      n3      n4      n5      n6      n7      n8
        1       1       2      41     101      92       0       0       0       0
