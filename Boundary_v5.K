@@ -1,13 +1,13 @@
 $# LS-DYNA Keyword file created by LS-PrePost(R) V4.7.1 - 23Nov2019
-$# Created on Aug-12-2020 (08:24:17)
+$# Created on Aug-12-2020 (09:24:38)
 *KEYWORD
 *PARAMETER
 $#   prmr1      val1     prmr2      val2     prmr3      val3     prmr4      val4
 rpanelw   20.0      rpanelh   80.0                                              
 rcreasew  2.0                                                                   
-rfinfold  2.1
-rfinfold2 2.2
-rfinfold3 2.3                                                                   
+rfinfold  2.1                                                                   
+rfinfold2 2.2                                                                   
+rfinfold3 2.5                                                                   
 *PARAMETER_EXPRESSION
 rgluew    panelw/3.0
 rcreasew2 creasew/2.0
@@ -17,15 +17,15 @@ rcre2panw creasew2+panelw
 rcre2panh creasew2+panelh
 *CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIED_WELD_ID
 $#     cid                                                                 title
-         1testing tied contack
+         1tied contack with hclose
 $#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
-        13        11         3         3         0         0         0         0
+        13        11         3         3         0         0         2         0
 $#      fs        fd        dc        vc       vdc    penchk        bt        dt
        1.0       1.0       0.0       0.0       0.0         0      2.011.00000E20
 $#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
        1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
 $#    temp     close    hclose     ntprm     nmhis     
-       0.0       0.0       0.0         0         0
+       0.0       1.0       0.0         0         0
 *CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIED_WELD_ID
 $#     cid                                                                 title
          2testing tied contack
@@ -100,4 +100,58 @@ $# offset1   offset2       mrb     node1     node2
 *BOUNDARY_SPC_SET
 $#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz
          3         0         1         1         1         1         1         1
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         1      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         1      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         2      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         3      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         4      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         5      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         6      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         7      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         8      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+         9      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        10      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        11      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        12      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        13      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        14      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        15      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        16      10.0         0
+*INITIAL_TEMPERATURE_SET
+$#    nsid      temp       loc   
+        17      10.0         0
 *END
