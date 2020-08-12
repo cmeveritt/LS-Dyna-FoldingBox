@@ -1,12 +1,12 @@
 $# LS-DYNA Keyword file created by LS-PrePost(R) V4.7.1 - 23Nov2019
-$# Created on Jul-02-2020 (12:59:23)
+$# Created on Aug-12-2020 (08:58:26)
 *KEYWORD
 *TITLE
 $#                                                                         title
 LS-DYNA keyword deck by LS-PrePost
 *CONTROL_TERMINATION
 $#  endtim    endcyc     dtmin    endeng    endmas     nosol     
-       2.0         0      0.01       0.01.000000E8         0
+       2.6         0      0.01       0.01.000000E8         0
 *DATABASE_ELOUT
 $#      dt    binary      lcur     ioopt   option1   option2   option3   option4
        0.1         3         0         1         0         0         0         0
@@ -27,7 +27,17 @@ $#   ioopt      rate    cutoff    window      type      pset
 *MAT_ELASTIC_TITLE
 Simple Elastic
 $#     mid        ro         e        pr        da        db  not used        
-         19.0000E-10   10000.0       0.3       0.0       0.0       0.0
+         29.00000E-5   10000.0       0.3       0.0       0.0       0.0
+*MAT_PIECEWISE_LINEAR_PLASTICITY_TITLE
+linear plastic
+$#     mid        ro         e        pr      sigy      etan      fail      tdel
+         19.00000E-5   10000.0       0.3     100.0     100.01.00000E21       0.0
+$#       c         p      lcss      lcsr        vp  
+       0.0       0.0         0         0       0.0
+$#    eps1      eps2      eps3      eps4      eps5      eps6      eps7      eps8
+       0.0       0.0       0.0       0.0       0.0       0.0       0.0       0.0
+$#     es1       es2       es3       es4       es5       es6       es7       es8
+       0.0       0.0       0.0       0.0       0.0       0.0       0.0       0.0
 *SECTION_SHELL_TITLE
 Paperboard
 $#   secid    elform      shrf       nip     propt   qr/irid     icomp     setyp
