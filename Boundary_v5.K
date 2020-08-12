@@ -97,4 +97,35 @@ $#    nsid       dof       vad      lcid        sf       vid     death     birth
         17         9         2         1       1.0         0&finfold2        1.0
 $# offset1   offset2       mrb     node1     node2     
 &cre2panh &crepanw           0         0         0
+$#      id                                                               heading
+        11Box kompression
+$#    nsid       dof       vad      lcid        sf       vid     death     birth
+        18         2         2         3      -1.0         0      10.0       0.0
+*BOUNDARY_SPC_SET_ID
+$#      id                                                               heading
+         2top plate
+$#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz
+        18         0         1         0         1         1         1         1
+$#      id                                                               heading
+         3Bottom plate
+$#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz
+        19         0         1         1         1         1         1         1
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID
+$#     cid                                                                 title
+         4contact for box compression bottom
+$#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
+        19         4         3         3         0         0         0         0
+$#      fs        fd        dc        vc       vdc    penchk        bt        dt
+       0.0       0.0       0.0       0.0       0.0         0       2.01.00000E20
+$#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
+       1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID
+$#     cid                                                                 title
+         5contact for box compression top
+$#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
+        18         7         3         3         0         0         0         0
+$#      fs        fd        dc        vc       vdc    penchk        bt        dt
+       0.0       0.0       0.0       0.0       0.0         0       2.01.00000E20
+$#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
+       1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
 *END
