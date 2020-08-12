@@ -6,7 +6,7 @@ $#                                                                         title
 LS-DYNA keyword deck by LS-PrePost
 *CONTROL_TERMINATION
 $#  endtim    endcyc     dtmin    endeng    endmas     nosol     
-       4.0         0      0.01       0.01.000000E8         0
+       6.0         0      0.01       0.01.000000E8         0
 *DATABASE_ELOUT
 $#      dt    binary      lcur     ioopt   option1   option2   option3   option4
        0.1         3         0         1         0         0         0         0
@@ -68,7 +68,7 @@ $#    lcid      sidr       sfa       sfo      offa      offo    dattyp     lcint
 $#                a1                  o1  
                  0.0                 0.0
                  3.0                 0.0
-                 4.0                20.0
+                 6.0                50.0
 $=======================================================================================
 $ Input the geometry file
 $=======================================================================================
