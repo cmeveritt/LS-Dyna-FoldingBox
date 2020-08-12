@@ -1,12 +1,12 @@
 $# LS-DYNA Keyword file created by LS-PrePost(R) V4.7.1 - 23Nov2019
-$# Created on Aug-12-2020 (09:24:38)
+$# Created on Aug-12-2020 (13:07:05)
 *KEYWORD
 *TITLE
 $#                                                                         title
 LS-DYNA keyword deck by LS-PrePost
 *CONTROL_TERMINATION
 $#  endtim    endcyc     dtmin    endeng    endmas     nosol     
-       3.0         0      0.01       0.01.000000E8         0
+       4.0         0      0.01       0.01.000000E8         0
 *DATABASE_ELOUT
 $#      dt    binary      lcur     ioopt   option1   option2   option3   option4
        0.1         3         0         1         0         0         0         0
@@ -61,6 +61,14 @@ $#                a1                  o1
                  1.0                 0.0
                  2.0            1.570796
                 10.0            1.570796
+*DEFINE_CURVE_TITLE
+Box kompression starting at time 3
+$#    lcid      sidr       sfa       sfo      offa      offo    dattyp     lcint
+         3         0       1.0       1.0       0.0       0.0         0         0
+$#                a1                  o1  
+                 0.0                 0.0
+                 3.0                 0.0
+                 4.0                20.0
 $=======================================================================================
 $ Input the geometry file
 $=======================================================================================

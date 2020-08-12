@@ -1,5 +1,5 @@
 $# LS-DYNA Keyword file created by LS-PrePost(R) V4.7.1 - 23Nov2019
-$# Created on Aug-12-2020 (09:24:38)
+$# Created on Aug-12-2020 (13:47:48)
 *KEYWORD
 *PARAMETER
 $#   prmr1      val1     prmr2      val2     prmr3      val3     prmr4      val4
@@ -15,39 +15,39 @@ rcrepanw  creasew+panelw
 rcrepanwe creasew+panelw+0.5
 rcre2panw creasew2+panelw
 rcre2panh creasew2+panelh
-*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIED_WELD_ID
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIEBREAK_ID
 $#     cid                                                                 title
-         1tied contack with hclose
+         4tibebreak contact
 $#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
-        13        11         3         3         0         0         2         0
+        13        11         3         3         0         0         0         0
 $#      fs        fd        dc        vc       vdc    penchk        bt        dt
-       1.0       1.0       0.0       0.0       0.0         0      2.011.00000E20
+       0.0       0.0       0.0       0.0       0.0         0       0.01.00000E20
 $#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
        1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
-$#    temp     close    hclose     ntprm     nmhis     
-       0.0       1.0       0.0         0         0
-*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIED_WELD_ID
+$#  option      nfls      sfls     param    eraten    erates     ct2cn        cn
+         1       0.0       0.0       0.0       0.0       0.0       0.0       0.0
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIEBREAK_ID
 $#     cid                                                                 title
-         2testing tied contack
+         4tibebreak contact
 $#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
         15        11         3         3         0         0         0         0
 $#      fs        fd        dc        vc       vdc    penchk        bt        dt
-       1.0       1.0       0.0       0.0       0.0         0      2.011.00000E20
+       0.0       0.0       0.0       0.0       0.0         0       0.01.00000E20
 $#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
        1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
-$#    temp     close    hclose     ntprm     nmhis     
-       0.0       0.0       0.0         0         0
-*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIED_WELD_ID
+$#  option      nfls      sfls     param    eraten    erates     ct2cn        cn
+         1       0.0       0.0       0.0       0.0       0.0       0.0       0.0
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_TIEBREAK_ID
 $#     cid                                                                 title
-         3testing tied contack
+         4tibebreak contact
 $#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
         17        11         3         3         0         0         0         0
 $#      fs        fd        dc        vc       vdc    penchk        bt        dt
-       1.0       1.0       0.0       0.0       0.0         0      2.011.00000E20
+       0.0       0.0       0.0       0.0       0.0         0       0.01.00000E20
 $#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
        1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
-$#    temp     close    hclose     ntprm     nmhis     
-       0.0       0.0       0.0         0         0
+$#  option      nfls      sfls     param    eraten    erates     ct2cn        cn
+         1       0.0       0.0       0.0       0.0       0.0       0.0       0.0
 *BOUNDARY_PRESCRIBED_MOTION_SET_ID
 $#      id                                                               heading
          1folding left plate
@@ -97,61 +97,35 @@ $#    nsid       dof       vad      lcid        sf       vid     death     birth
         17         9         2         1       1.0         0&finfold2        1.0
 $# offset1   offset2       mrb     node1     node2     
 &cre2panh &crepanw           0         0         0
-*BOUNDARY_SPC_SET
+$#      id                                                               heading
+        11Box kompression
+$#    nsid       dof       vad      lcid        sf       vid     death     birth
+        18         2         2         3      -1.0         0      10.0       0.0
+*BOUNDARY_SPC_SET_ID
+$#      id                                                               heading
+         2top plate
 $#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz
-         3         0         1         1         1         1         1         1
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         1      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         1      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         2      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         3      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         4      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         5      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         6      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         7      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         8      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-         9      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        10      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        11      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        12      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        13      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        14      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        15      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        16      10.0         0
-*INITIAL_TEMPERATURE_SET
-$#    nsid      temp       loc   
-        17      10.0         0
+        18         0         1         0         1         1         1         1
+$#      id                                                               heading
+         3Bottom plate
+$#    nsid       cid      dofx      dofy      dofz     dofrx     dofry     dofrz
+        19         0         1         1         1         1         1         1
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID
+$#     cid                                                                 title
+         4contact for box compression bottom
+$#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
+        19         4         3         3         0         0         0         0
+$#      fs        fd        dc        vc       vdc    penchk        bt        dt
+       0.0       0.0       0.0       0.0       0.0         0       2.01.00000E20
+$#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
+       1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
+*CONTACT_AUTOMATIC_SURFACE_TO_SURFACE_ID
+$#     cid                                                                 title
+         5contact for box compression top
+$#    ssid      msid     sstyp     mstyp    sboxid    mboxid       spr       mpr
+        18         7         3         3         0         0         0         0
+$#      fs        fd        dc        vc       vdc    penchk        bt        dt
+       0.0       0.0       0.0       0.0       0.0         0       2.01.00000E20
+$#     sfs       sfm       sst       mst      sfst      sfmt       fsf       vsf
+       1.0       1.0       0.0       0.0       1.0       1.0       1.0       1.0
 *END
